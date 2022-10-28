@@ -1,16 +1,21 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:swachh/constants.dart';
+import 'package:swachh/views/camera.dart';
+import 'package:swachh/views/camera1.dart';
+import 'package:swachh/views/cameraScreen.dart';
 import 'package:swachh/views/chatbot.dart';
 import 'package:swachh/views/home.dart';
 import 'package:swachh/views/profile.dart';
 import 'package:swachh/views/recylepoints.dart';
 import 'package:swachh/views/scan.dart';
-
+List<CameraDescription>? camera;
 class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  final List<CameraDescription> camerasList;
+  const Dashboard({required this.camerasList,Key? key}) : super(key: key);
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -18,24 +23,39 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _bottomNavIndex = 0;
-
-  final List _pages = const [
-    Home(),
-    RecylePoints(),
-    Scan(),
-    ChatBot(),
-    Profile(),
-  ];
+ 
+  late final List _pages ;
 
   void _onItemTapped(int index) {
     setState(() {
-      _bottomNavIndex = index;
+        _bottomNavIndex = index;
     });
   }
-
+  getCameras() async {
+ camera = await availableCameras(); 
+ print(camera!.length);
+}
+getPages(){
+  _pages = [
+    Home(),
+    RecylePoints(),
+    // CameraPage(),
+    CameraScreen(cameras: widget.camerasList,),
+    ChatBot(),
+    Profile(),
+  ];
+}
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getPages();
+  }
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
+  // cameras = await availableCameras(); 
+  // getCameras();
     return Scaffold(
         backgroundColor: Colors.grey.shade200,
         appBar: AppBar(
@@ -92,20 +112,21 @@ class _DashboardState extends State<Dashboard> {
                 backgroundColor: Colors.grey.shade200),
             BottomNavigationBarItem(
                 icon: const Icon(Icons.camera_alt_outlined),
-                label: 'Location',
+                label: 'Scan',
                 backgroundColor: Colors.grey.shade200),
             BottomNavigationBarItem(
                 icon: const Icon(Icons.chat_bubble_outline),
-                label: 'Location',
+                label: 'ChatBot',
                 backgroundColor: Colors.grey.shade200),
             BottomNavigationBarItem(
                 icon: const Icon(Icons.person_outline),
-                label: 'Location',
+                label: 'Profile',
                 backgroundColor: Colors.grey.shade200),
           ],
           onTap: _onItemTapped,
           currentIndex: _bottomNavIndex,
         ),
-        body: _pages.elementAt(_bottomNavIndex));
+        body: _pages.elementAt(_bottomNavIndex)
+        );
   }
 }
