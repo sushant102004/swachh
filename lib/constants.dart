@@ -5,4 +5,5 @@ class Constants {
   final primaryColor = const Color.fromARGB(255, 91, 140, 41);
   final backgroundColor = Colors.grey.shade200;
   final onBoardText = const Color.fromARGB(255, 91, 140, 41);
+  final formBackground = Color.fromARGB(106, 166, 167, 165);
 }
