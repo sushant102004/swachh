@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:swachh/constants.dart';
+import 'package:swachh/controllers/splashController.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -11,6 +14,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final splashController = Get.put(SplashController());
+
+  @override
+  void initState() {
+    super.initState();
+    callSetScreen();
+  }
+
+  void callSetScreen() {
+    Timer(const Duration(seconds: 4), () => {splashController.setScreen()});
+  }
+
   final constants = Get.put(Constants());
   @override
   Widget build(BuildContext context) {

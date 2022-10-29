@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swachh/constants.dart';
 import 'package:swachh/views/authentication/signup.dart';
-import 'package:swachh/views/splash/onboarding/onscreentwo.dart';
+import 'package:swachh/views/splash/onboarding/obscreenthree.dart';
 import 'package:swachh/views/splash/onboarding/widgets/onboardscreenwidget.dart';
 
-class OnBoardOne extends StatelessWidget {
-  OnBoardOne({Key? key}) : super(key: key);
+class OnBoardTwo extends StatelessWidget {
+  OnBoardTwo({Key? key}) : super(key: key);
 
   final constants = Get.put(Constants());
 
@@ -16,12 +16,12 @@ class OnBoardOne extends StatelessWidget {
       backgroundColor: constants.backgroundColor,
       body: OnBoardScreenWidget(
         constants: constants,
-        imagePath: 'assets/images/onboard/One.png',
-        heading: 'An AI Based Camera',
+        imagePath: 'assets/images/onboard/Two.png',
+        heading: 'A Smart Chatbot',
         description:
-            'Swachh has an inbuilt AI Camera which will tell either your waste is recyclable, reusable or reducable and which type of garbage bin to use for a particular waste product.',
+            'In case, you have some issues disposing a particular type of waste or have some doubts, queries regarding something related to waste management you can reach out to Swachh smart chatbot',
         onNext: () {
-          Get.off(OnBoardTwo());
+          Get.off(OnBoardThree());
         },
         onSkip: () {
           Get.off(const SignUp());

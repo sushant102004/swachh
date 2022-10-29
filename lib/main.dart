@@ -1,7 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swachh/views/dashboard.dart';
+import 'package:swachh/views/splash/onboarding/obscreenone.dart';
+import 'package:swachh/views/splash/onboarding/onscreentwo.dart';
 import 'package:swachh/views/splash/splashscreen.dart';
 
 Future<void> main() async {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       // home: Dashboard(
       //   camerasList: cameras,
       // ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       theme: ThemeData(fontFamily: 'Satoshi'),
     );
   }
