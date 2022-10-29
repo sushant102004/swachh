@@ -33,7 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.5
-  azure_speech_recognition:
+  # azure_speech_recognition:
   get: ^4.6.5
   camera:
   video_player:

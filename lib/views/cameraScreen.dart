@@ -53,9 +53,8 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Stack(
-        children: [
-          Column(
+      body: Stack(children: [
+        Column(
           children: [
             FutureBuilder<void>(
               future: _initializeControllerFuture,
@@ -89,7 +88,8 @@ class _CameraScreenState extends State<CameraScreen> {
                         ));
                       }
                     },
-                    icon: Icon(Icons.switch_camera_rounded, color: Colors.white),
+                    icon:
+                        Icon(Icons.switch_camera_rounded, color: Colors.white),
                   ),
                   GestureDetector(
                     onTap: () async {
@@ -140,161 +140,213 @@ class _CameraScreenState extends State<CameraScreen> {
         //   height: MediaQuery.of(context).size.height*0.644,
         //   width: MediaQuery.of(context).size.width,
         //   color: Color.fromARGB(100, 91, 140, 41),),
-    Positioned(
-      top: MediaQuery.of(context).size.height*0.12,
-      left:MediaQuery.of(context).size.width*0.05 ,
-  child:   CustomPaint(
-  
-      size: Size(70, (70*1.0232558139534884).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-  
-      painter: TLCustomPainter(),
-  
-  ),
-),
-Positioned(
-      top: MediaQuery.of(context).size.height*0.12,
-      right:MediaQuery.of(context).size.width*0.05 ,
-  child:   CustomPaint(
-  
-      size: Size(70, (70*1.0232558139534884).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-  
-      painter: TRCustomPainter(),
-  
-  ),
-),
-Positioned(
-  top: MediaQuery.of(context).size.height*0.44,
-      left:MediaQuery.of(context).size.width*0.05 ,
-  child:   CustomPaint(
-  
-      size: Size(70, (70*1.0232558139534884).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-  
-      painter: BLCustomPainter(),
-  
-  ),
-),
-Positioned(
-  top: MediaQuery.of(context).size.height*0.44,
-      right:MediaQuery.of(context).size.width*0.05 ,
-  child:   CustomPaint(
-  
-      size: Size(70, (70*1.0232558139534884).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-  
-      painter: RPSCustomPainter(),
-  
-  ),
-)
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.12,
+          left: MediaQuery.of(context).size.width * 0.05,
+          child: CustomPaint(
+            size: Size(
+                70,
+                (70 * 1.0232558139534884)
+                    .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
 
-        ]
-      ),
+            painter: TLCustomPainter(),
+          ),
+        ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.12,
+          right: MediaQuery.of(context).size.width * 0.05,
+          child: CustomPaint(
+            size: Size(
+                70,
+                (70 * 1.0232558139534884)
+                    .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+
+            painter: TRCustomPainter(),
+          ),
+        ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.44,
+          left: MediaQuery.of(context).size.width * 0.05,
+          child: CustomPaint(
+            size: Size(
+                70,
+                (70 * 1.0232558139534884)
+                    .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+
+            painter: BLCustomPainter(),
+          ),
+        ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.44,
+          right: MediaQuery.of(context).size.width * 0.05,
+          child: CustomPaint(
+            size: Size(
+                70,
+                (70 * 1.0232558139534884)
+                    .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+
+            painter: RPSCustomPainter(),
+          ),
+        )
+      ]),
     );
   }
 }
 
 class RPSCustomPainter extends CustomPainter {
-    @override
-    void paint(Canvas canvas, Size size) {
-            
-Path path_0 = Path();
-    path_0.moveTo(size.width*0.06976744,size.height*0.9204545);
-    path_0.lineTo(size.width*0.5930233,size.height*0.9204545);
-    path_0.cubicTo(size.width*0.7054256,size.height*0.9280295,size.width*0.9302326,size.height*0.8681818,size.width*0.9302326,size.height*0.5681818);
-    path_0.cubicTo(size.width*0.9302326,size.height*0.2681818,size.width*0.9302326,size.height*0.1098484,size.width*0.9302326,size.height*0.06818182);
+  @override
+  void paint(Canvas canvas, Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(size.width * 0.06976744, size.height * 0.9204545);
+    path_0.lineTo(size.width * 0.5930233, size.height * 0.9204545);
+    path_0.cubicTo(
+        size.width * 0.7054256,
+        size.height * 0.9280295,
+        size.width * 0.9302326,
+        size.height * 0.8681818,
+        size.width * 0.9302326,
+        size.height * 0.5681818);
+    path_0.cubicTo(
+        size.width * 0.9302326,
+        size.height * 0.2681818,
+        size.width * 0.9302326,
+        size.height * 0.1098484,
+        size.width * 0.9302326,
+        size.height * 0.06818182);
 
-Paint paint_0_stroke = Paint()..style=PaintingStyle.stroke..strokeWidth=size.width*0.1162791;
-paint_0_stroke.color=Colors.green.withOpacity(1.0);
-paint_0_stroke.strokeCap = StrokeCap.round;
-canvas.drawPath(path_0,paint_0_stroke);
+    Paint paint_0_stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = size.width * 0.1162791;
+    paint_0_stroke.color = Colors.green.withOpacity(1.0);
+    paint_0_stroke.strokeCap = StrokeCap.round;
+    canvas.drawPath(path_0, paint_0_stroke);
 
-Paint paint_0_fill = Paint()..style=PaintingStyle.fill;
-paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
-canvas.drawPath(path_0,paint_0_fill);
+    Paint paint_0_fill = Paint()..style = PaintingStyle.fill;
+    paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
+    canvas.drawPath(path_0, paint_0_fill);
+  }
 
-}
-
-@override
-bool shouldRepaint(covariant CustomPainter oldDelegate) {
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
+  }
 }
-}
+
 class BLCustomPainter extends CustomPainter {
-    @override
-    void paint(Canvas canvas, Size size) {
-            
-Path path_0 = Path();
-    path_0.moveTo(size.width*0.9302326,size.height*0.9204545);
-    path_0.lineTo(size.width*0.4069767,size.height*0.9204545);
-    path_0.cubicTo(size.width*0.2945744,size.height*0.9280295,size.width*0.06976744,size.height*0.8681818,size.width*0.06976744,size.height*0.5681818);
-    path_0.cubicTo(size.width*0.06976744,size.height*0.2681818,size.width*0.06976744,size.height*0.1098484,size.width*0.06976744,size.height*0.06818182);
+  @override
+  void paint(Canvas canvas, Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(size.width * 0.9302326, size.height * 0.9204545);
+    path_0.lineTo(size.width * 0.4069767, size.height * 0.9204545);
+    path_0.cubicTo(
+        size.width * 0.2945744,
+        size.height * 0.9280295,
+        size.width * 0.06976744,
+        size.height * 0.8681818,
+        size.width * 0.06976744,
+        size.height * 0.5681818);
+    path_0.cubicTo(
+        size.width * 0.06976744,
+        size.height * 0.2681818,
+        size.width * 0.06976744,
+        size.height * 0.1098484,
+        size.width * 0.06976744,
+        size.height * 0.06818182);
 
-Paint paint_0_stroke = Paint()..style=PaintingStyle.stroke..strokeWidth=size.width*0.1162791;
-paint_0_stroke.color=Colors.green.withOpacity(1.0);
-paint_0_stroke.strokeCap = StrokeCap.round;
-canvas.drawPath(path_0,paint_0_stroke);
+    Paint paint_0_stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = size.width * 0.1162791;
+    paint_0_stroke.color = Colors.green.withOpacity(1.0);
+    paint_0_stroke.strokeCap = StrokeCap.round;
+    canvas.drawPath(path_0, paint_0_stroke);
 
-Paint paint_0_fill = Paint()..style=PaintingStyle.fill;
-paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
-canvas.drawPath(path_0,paint_0_fill);
+    Paint paint_0_fill = Paint()..style = PaintingStyle.fill;
+    paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
+    canvas.drawPath(path_0, paint_0_fill);
+  }
 
-}
-
-@override
-bool shouldRepaint(covariant CustomPainter oldDelegate) {
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
-}
+  }
 }
 
 //Add this CustomPaint widget to the Widget Tree
 class TRCustomPainter extends CustomPainter {
-    @override
-    void paint(Canvas canvas, Size size) {
-            
-Path path_0 = Path();
-    path_0.moveTo(size.width*0.06976744,size.height*0.06879250);
-    path_0.lineTo(size.width*0.5930233,size.height*0.06879250);
-    path_0.cubicTo(size.width*0.7054256,size.height*0.06121682,size.width*0.9302326,size.height*0.1210652,size.width*0.9302326,size.height*0.4210659);
-    path_0.cubicTo(size.width*0.9302326,size.height*0.7210659,size.width*0.9302326,size.height*0.8793977,size.width*0.9302326,size.height*0.9210659);
+  @override
+  void paint(Canvas canvas, Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(size.width * 0.06976744, size.height * 0.06879250);
+    path_0.lineTo(size.width * 0.5930233, size.height * 0.06879250);
+    path_0.cubicTo(
+        size.width * 0.7054256,
+        size.height * 0.06121682,
+        size.width * 0.9302326,
+        size.height * 0.1210652,
+        size.width * 0.9302326,
+        size.height * 0.4210659);
+    path_0.cubicTo(
+        size.width * 0.9302326,
+        size.height * 0.7210659,
+        size.width * 0.9302326,
+        size.height * 0.8793977,
+        size.width * 0.9302326,
+        size.height * 0.9210659);
 
-Paint paint_0_stroke = Paint()..style=PaintingStyle.stroke..strokeWidth=size.width*0.1162791;
-paint_0_stroke.color=Colors.green.withOpacity(1.0);
-paint_0_stroke.strokeCap = StrokeCap.round;
-canvas.drawPath(path_0,paint_0_stroke);
+    Paint paint_0_stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = size.width * 0.1162791;
+    paint_0_stroke.color = Colors.green.withOpacity(1.0);
+    paint_0_stroke.strokeCap = StrokeCap.round;
+    canvas.drawPath(path_0, paint_0_stroke);
 
-Paint paint_0_fill = Paint()..style=PaintingStyle.fill;
-paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
-canvas.drawPath(path_0,paint_0_fill);
+    Paint paint_0_fill = Paint()..style = PaintingStyle.fill;
+    paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
+    canvas.drawPath(path_0, paint_0_fill);
+  }
 
-}
-
-@override
-bool shouldRepaint(covariant CustomPainter oldDelegate) {
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
+  }
 }
-}
+
 //Copy this CustomPainter code to the Bottom of the File
 class TLCustomPainter extends CustomPainter {
-    @override
-    void paint(Canvas canvas, Size size) {
-            
-Path path_0 = Path();
-    path_0.moveTo(size.width*0.9302326,size.height*0.06879250);
-    path_0.lineTo(size.width*0.4069767,size.height*0.06879250);
-    path_0.cubicTo(size.width*0.2945744,size.height*0.06121682,size.width*0.06976744,size.height*0.1210652,size.width*0.06976744,size.height*0.4210659);
-    path_0.cubicTo(size.width*0.06976744,size.height*0.7210659,size.width*0.06976744,size.height*0.8793977,size.width*0.06976744,size.height*0.9210659);
+  @override
+  void paint(Canvas canvas, Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(size.width * 0.9302326, size.height * 0.06879250);
+    path_0.lineTo(size.width * 0.4069767, size.height * 0.06879250);
+    path_0.cubicTo(
+        size.width * 0.2945744,
+        size.height * 0.06121682,
+        size.width * 0.06976744,
+        size.height * 0.1210652,
+        size.width * 0.06976744,
+        size.height * 0.4210659);
+    path_0.cubicTo(
+        size.width * 0.06976744,
+        size.height * 0.7210659,
+        size.width * 0.06976744,
+        size.height * 0.8793977,
+        size.width * 0.06976744,
+        size.height * 0.9210659);
 
-Paint paint_0_stroke = Paint()..style=PaintingStyle.stroke..strokeWidth=size.width*0.1162791;
-paint_0_stroke.color=Colors.green.withOpacity(1.0);
-paint_0_stroke.strokeCap = StrokeCap.round;
-canvas.drawPath(path_0,paint_0_stroke);
+    Paint paint_0_stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = size.width * 0.1162791;
+    paint_0_stroke.color = Colors.green.withOpacity(1.0);
+    paint_0_stroke.strokeCap = StrokeCap.round;
+    canvas.drawPath(path_0, paint_0_stroke);
 
-Paint paint_0_fill = Paint()..style=PaintingStyle.fill;
-paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
-canvas.drawPath(path_0,paint_0_fill);
+    Paint paint_0_fill = Paint()..style = PaintingStyle.fill;
+    paint_0_fill.color = Color(0xff000000).withOpacity(0.0);
+    canvas.drawPath(path_0, paint_0_fill);
+  }
 
-}
-
-@override
-bool shouldRepaint(covariant CustomPainter oldDelegate) {
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
-}
+  }
 }
