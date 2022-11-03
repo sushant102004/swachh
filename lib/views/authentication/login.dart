@@ -1,20 +1,19 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:swachh/constants.dart';
-import 'package:swachh/views/authentication/login.dart';
+import 'package:swachh/views/authentication/signup.dart';
 import 'package:swachh/views/dashboard.dart';
 import 'package:swachh/views/widgets/textinputbox.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LoginState extends State<Login> {
   final constants = Get.put(Constants());
   @override
   Widget build(BuildContext context) {
@@ -69,12 +68,7 @@ class _SignUpState extends State<SignUp> {
                       ),
 
                       // Form
-                      TextInputBox(
-                        constants: constants,
-                        icon: Icons.person_outline,
-                        hintText: 'Full Name',
-                        obscureText: false,
-                      ),
+
                       TextInputBox(
                         constants: constants,
                         icon: Icons.email_outlined,
@@ -166,16 +160,16 @@ class _SignUpState extends State<SignUp> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Already have account? ',
+                              'Dont have an account? ',
                               style: TextStyle(
                                   color: constants.textColor, fontSize: 15),
                             ),
                             InkWell(
                               onTap: () {
-                                Get.off(const Login());
+                                Get.off(const SignUp());
                               },
                               child: Text(
-                                'Login Now',
+                                'Create New Account',
                                 style: TextStyle(
                                     color: constants.primaryColor,
                                     fontSize: 15,
