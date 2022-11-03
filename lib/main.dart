@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:swachh/views/authentication/enterotp.dart';
 import 'package:swachh/views/authentication/forgetpassword.dart';
 import 'package:swachh/views/splash/splashscreen.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       // home: Dashboard(
       //   camerasList: cameras,
       // ),
-      home: const ForgotPassword(),
+      home: const EnterOTP(),
       theme: ThemeData(fontFamily: 'Satoshi'),
     );
   }
