@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:swachh/views/authentication/forgetpassword.dart';
 import 'package:swachh/views/splash/splashscreen.dart';
 
 Future<void> main() async {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       // home: Dashboard(
       //   camerasList: cameras,
       // ),
-      home: const SplashScreen(),
+      home: const ForgotPassword(),
       theme: ThemeData(fontFamily: 'Satoshi'),
     );
   }

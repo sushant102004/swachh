@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:swachh/constants.dart';
+import 'package:swachh/views/authentication/login.dart';
 import 'package:swachh/views/authentication/signup.dart';
 import 'package:swachh/views/dashboard.dart';
 import 'package:swachh/views/widgets/textinputbox.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-class _LoginState extends State<Login> {
-  final constants = Get.put(Constants());
+class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
+    final constants = Get.put(Constants());
     return Scaffold(
       backgroundColor: constants.primaryColor,
       body: SingleChildScrollView(
@@ -46,14 +47,14 @@ class _LoginState extends State<Login> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Login',
+                              'Forgot',
                               style: TextStyle(
                                   color: constants.primaryColor,
                                   fontSize: 21,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              ' into your account.',
+                              ' my Password',
                               style: TextStyle(
                                   fontSize: 21,
                                   color: Colors.grey.shade800,
@@ -75,12 +76,7 @@ class _LoginState extends State<Login> {
                         hintText: 'E-Mail',
                         obscureText: false,
                       ),
-                      TextInputBox(
-                        constants: constants,
-                        icon: Icons.lock_outline,
-                        hintText: 'Password',
-                        obscureText: true,
-                      ),
+
                       SizedBox(
                         height: Get.height / 30,
                       ),
@@ -107,52 +103,6 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(top: Get.height / 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          // crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: Get.width / 3,
-                              child: Divider(
-                                color: Colors.grey.shade500,
-                                thickness: 0.5,
-                              ),
-                            ),
-                            Text(
-                              ' or ',
-                              style: TextStyle(
-                                  color: Colors.grey.shade500, fontSize: 16),
-                            ),
-                            SizedBox(
-                              width: Get.width / 3,
-                              child: Divider(
-                                color: Colors.grey.shade500,
-                                thickness: 0.5,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      Padding(
-                        padding: EdgeInsets.only(top: Get.height / 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/images/google.svg',
-                              width: 35,
-                            ),
-                            SizedBox(width: Get.width / 20),
-                            SvgPicture.asset(
-                              'assets/images/apple.svg',
-                              width: 30,
-                            )
-                          ],
-                        ),
-                      ),
 
                       Padding(
                         padding: EdgeInsets.only(top: Get.height / 25),
@@ -160,16 +110,16 @@ class _LoginState extends State<Login> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Dont have an account? ',
+                              'Go back to ',
                               style: TextStyle(
                                   color: constants.textColor, fontSize: 15),
                             ),
                             InkWell(
                               onTap: () {
-                                Get.off(const SignUp());
+                                Get.off(const Login());
                               },
                               child: Text(
-                                'Create New Account',
+                                'Login',
                                 style: TextStyle(
                                     color: constants.primaryColor,
                                     fontSize: 15,
