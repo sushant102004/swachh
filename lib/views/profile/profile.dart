@@ -10,10 +10,6 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Profile'),
-      ),
-    );
+    return Scaffold();
   }
 }

@@ -16,6 +16,43 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade200,
+        elevation: 0,
+        title: Padding(
+          padding: EdgeInsets.only(top: _size.height / 150),
+          child: Row(
+            children: [
+              Text(
+                'Hi, ',
+                style: TextStyle(
+                    color: Constants().textColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'Sushant Dhiman',
+                style: TextStyle(
+                    color: Constants().primaryColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(top: _size.height / 150),
+            child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.notifications_outlined,
+                  color: Constants().textColor,
+                  size: 30,
+                )),
+          ),
+        ],
+      ),
       backgroundColor: Colors.grey.shade200,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

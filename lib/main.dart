@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       // home: Dashboard(
       //   camerasList: cameras,
       // ),
-      home: const EnterOTP(),
+      home: const SplashScreen(),
       theme: ThemeData(fontFamily: 'Satoshi'),
     );
   }

@@ -9,13 +9,15 @@ import 'package:swachh/views/camera1.dart';
 import 'package:swachh/views/cameraScreen.dart';
 import 'package:swachh/views/chatbot.dart';
 import 'package:swachh/views/home.dart';
-import 'package:swachh/views/profile.dart';
+import 'package:swachh/views/profile/profile.dart';
 import 'package:swachh/views/recylepoints.dart';
 import 'package:swachh/views/scan.dart';
+
 List<CameraDescription>? camera;
+
 class Dashboard extends StatefulWidget {
   final List<CameraDescription> camerasList;
-  const Dashboard({required this.camerasList,Key? key}) : super(key: key);
+  const Dashboard({required this.camerasList, Key? key}) : super(key: key);
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -23,78 +25,47 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _bottomNavIndex = 0;
- 
-  late final List _pages ;
+
+  late final List _pages;
 
   void _onItemTapped(int index) {
     setState(() {
-        _bottomNavIndex = index;
+      _bottomNavIndex = index;
     });
   }
+
   getCameras() async {
- camera = await availableCameras(); 
- print(camera!.length);
-}
-getPages(){
-  _pages = [
-    Home(),
-    RecylePoints(),
-    // CameraPage(),
-    CameraScreen(cameras: widget.camerasList,),
-    ChatBot(),
-    Profile(),
-  ];
-}
-@override
+    camera = await availableCameras();
+    print(camera!.length);
+  }
+
+  getPages() {
+    _pages = [
+      Home(),
+      RecylePoints(),
+      // CameraPage(),
+      CameraScreen(
+        cameras: widget.camerasList,
+      ),
+      ChatBot(),
+      Profile(),
+    ];
+  }
+
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getPages();
   }
+
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
-  // cameras = await availableCameras(); 
-  // getCameras();
+    // cameras = await availableCameras();
+    // getCameras();
     return Scaffold(
         backgroundColor: Colors.grey.shade200,
-        appBar: AppBar(
-          backgroundColor: Colors.grey.shade200,
-          elevation: 0,
-          title: Padding(
-            padding: EdgeInsets.only(top: _size.height / 150),
-            child: Row(
-              children: [
-                Text(
-                  'Hi, ',
-                  style: TextStyle(
-                      color: Constants().textColor,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'Sushant Dhiman',
-                  style: TextStyle(
-                      color: Constants().primaryColor,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(top: _size.height / 150),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.notifications_outlined,
-                    color: Constants().textColor,
-                    size: 30,
-                  )),
-            ),
-          ],
-        ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.grey.shade200,
           selectedItemColor: Constants().primaryColor,
@@ -126,7 +97,6 @@ getPages(){
           onTap: _onItemTapped,
           currentIndex: _bottomNavIndex,
         ),
-        body: _pages.elementAt(_bottomNavIndex)
-        );
+        body: _pages.elementAt(_bottomNavIndex));
   }
 }
