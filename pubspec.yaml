@@ -28,15 +28,15 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animated_bottom_navigation_bar: ^1.1.0
-  cached_network_image:
+  cached_network_image: null
+  camera: null
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.5
-  # azure_speech_recognition:
   get: ^4.6.5
-  camera:
-  video_player:
+  google_maps_flutter: ^2.2.1
+  video_player: null
 
 dev_dependencies:
   flutter_lints: ^2.0.0
