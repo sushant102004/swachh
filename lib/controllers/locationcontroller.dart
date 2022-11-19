@@ -49,13 +49,16 @@ class LocationController extends GetxController {
     return true;
   }
 
-  // Future<void> getCurrentPosition() async {
-  //   final isPermisionGranted = await getLocationPermission();
-  //   if (!isPermisionGranted) {
-  //     return;
-  //   }
+  Future<void> getCurrentPosition() async {
+    final isLocationPermissionGranted = await getLocationPermission();
+    if (!isLocationPermissionGranted) {
+      return;
+    }
+    Position currentPosition = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best,
+        forceAndroidLocationManager: true);
 
-  //   Position currentPosition = await Geolocator.getCurrentPosition(
-  //       desiredAccuracy: LocationAccuracy.high);
-  // }
+    print("Lat: ${currentPosition.latitude}");
+    print("Long: ${currentPosition.longitude}");
+  }
 }

@@ -3,7 +3,9 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:swachh/constants.dart';
+import 'package:swachh/controllers/locationcontroller.dart';
 import 'package:swachh/views/camera.dart';
 import 'package:swachh/views/camera1.dart';
 import 'package:swachh/views/cameraScreen.dart';
@@ -24,6 +26,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  final locationController = Get.put(LocationController());
   int _bottomNavIndex = 0;
 
   late final List _pages;
@@ -57,6 +60,7 @@ class _DashboardState extends State<Dashboard> {
     // TODO: implement initState
     super.initState();
     getPages();
+    locationController.getLocationPermission();
   }
 
   @override

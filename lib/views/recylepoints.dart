@@ -5,7 +5,7 @@ import 'package:swachh/controllers/locationcontroller.dart';
 
 LatLng currentLocation = const LatLng(30.2753, 77.0476);
 
-RxBool isCurrentLocationFected = false.obs;
+RxBool isCurrentLocationFected = true.obs;
 
 class RecylePoints extends StatefulWidget {
   const RecylePoints({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _RecylePointsState extends State<RecylePoints> {
   @override
   void initState() {
     super.initState();
-    locationController.getLocationPermission();
+    locationController.getCurrentPosition();
   }
 
   @override
