@@ -34,6 +34,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.5
+  geocoding: ^2.0.5
+  geolocator: ^9.0.2
   get: ^4.6.5
   google_maps_flutter: ^2.2.1
   video_player: null
