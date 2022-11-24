@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:swachh/views/recylepoints.dart';
 
 class LocationController extends GetxController {
+  RxDouble latitude = 0.0.obs;
+  RxDouble longitude = 0.0.obs;
+
   Future<bool> getLocationPermission() async {
     LocationPermission permission;
 
@@ -50,15 +53,10 @@ class LocationController extends GetxController {
   }
 
   Future<void> getCurrentPosition() async {
-    final isLocationPermissionGranted = await getLocationPermission();
-    if (!isLocationPermissionGranted) {
-      return;
-    }
-    Position currentPosition = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.best,
-        forceAndroidLocationManager: true);
-
-    print("Lat: ${currentPosition.latitude}");
-    print("Long: ${currentPosition.longitude}");
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best);
+    latitude.value = position.latitude;
+    longitude.value = position.longitude;
+    isCurrentLocationFected.value = true;
   }
 }

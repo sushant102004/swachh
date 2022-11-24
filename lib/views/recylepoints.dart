@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:swachh/constants.dart';
 import 'package:swachh/controllers/locationcontroller.dart';
 
-LatLng currentLocation = const LatLng(30.2753, 77.0476);
+final locationController = Get.put(LocationController());
 
-RxBool isCurrentLocationFected = true.obs;
+LatLng currentLocation = LatLng(
+    locationController.latitude.value, locationController.longitude.value);
+
+RxBool isCurrentLocationFected = false.obs;
 
 class RecylePoints extends StatefulWidget {
   const RecylePoints({Key? key}) : super(key: key);
@@ -49,8 +53,10 @@ class _RecylePointsState extends State<RecylePoints> {
               }),
               markers: _markers.values.toSet(),
             )
-          : const Center(
-              child: Text("Error in fetching location."),
+          : Center(
+              child: CircularProgressIndicator(
+                color: Constants().primaryColor,
+              ),
             )),
     );
   }
